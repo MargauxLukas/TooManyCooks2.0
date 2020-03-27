@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Tapis roulant
+  m_Shader: {fileID: -6465566751694194690, guid: 1ffcdc45191194d4bb1a970e16c3cfa7,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_5BDBC340_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 644031864ad1ee742b8c676b72ef4ae1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_955EC9CE_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 75a58ad4f393d574eb7b1de795c37a88, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_D3F9FDAE_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 8cf64d5fcaf07cb45a970ed47d3092d4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_F489A471_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 75a58ad4f393d574eb7b1de795c37a88, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Boolean_8EE20102: 1
+    - Vector1_37572E85: -0.59
+    m_Colors:
+    - Color_A45E7915: {r: 0.53333336, g: 1.9215686, b: 2, a: 0}
