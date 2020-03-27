@@ -25,7 +25,7 @@ public class IngredientManager : MonoBehaviour
 
         if (random <= 3)
         {
-            GameObject ingredientSpawn = Instantiate(prefab, new Vector3(t.position.x + 0.1f, t.position.y -0.6f, -0.75f), Quaternion.identity, t);
+            GameObject ingredientSpawn = Instantiate(prefab, new Vector3(t.position.x + 0.1f, t.position.y - 0.6f, -0.75f), Quaternion.identity, t);
 
             ingredientSpawn.GetComponent<IngredientInstance>().ingredient = ingredientList[Random.Range(0, ingredientList.Count)];
 
@@ -34,7 +34,7 @@ public class IngredientManager : MonoBehaviour
 
             foreach (GameObject g in childs = UtilityFunctions.instance.GetAllChildren(ingredientSpawn))
             {
-                g.GetComponent<MeshRenderer>().material = mat;
+                //g.GetComponent<MeshRenderer>().material = mat;
             }
 
             return ingredientSpawn;

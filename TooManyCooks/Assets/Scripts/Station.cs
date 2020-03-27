@@ -15,8 +15,8 @@ public class Station : MonoBehaviour
     public List<IngredientInstance> stationListIngredients;
     public List<Transform> stationSlots;
 
-    public Button cookedButton;
-    
+    public Button button;
+
     private void OnTriggerEnter(Collider collision)
     {
         //Debug.Log("Collision : " + collision);
@@ -28,31 +28,27 @@ public class Station : MonoBehaviour
             switch (stationCode)
             {
                 case 11:
-                    if(!collision.gameObject.GetComponent<IngredientInstance>().cutted && stationListIngredients.Count <= stationSlots.Count)
+                    if (!collision.gameObject.GetComponent<IngredientInstance>().cutted && stationListIngredients.Count <= stationSlots.Count)
                     {
                         collision.GetComponent<Move>().isTouched = false;
                         GetPosition(collision);
-                        collision.gameObject.GetComponent<Animator>().SetBool("Cut", true);
-                        collision.gameObject.GetComponent<IngredientInstance>().cutted = true;
-                        collision.gameObject.GetComponent<BoxCollider>().size = new Vector3(4f, 1.5f, 2.27f); 
-
                     }
                     else
                     {
-                        collision.gameObject.GetComponent<IngredientInstance>().GoToTable();
+                        //collision.gameObject.GetComponent<IngredientInstance>().GoToTable();
                         stationListIngredients.RemoveAt(stationListIngredients.Count - 1);
                     }
                     break;
 
                 case 23:
-                    if (!collision.gameObject.GetComponent<IngredientInstance>().cooked && stationListIngredients.Count <= 3)
+                    if (!collision.gameObject.GetComponent<IngredientInstance>().cooked && stationListIngredients.Count <= stationSlots.Count)
                     {
                         collision.GetComponent<Move>().isTouched = false;
                         GetPosition(collision);
                     }
                     else
                     {
-                        collision.gameObject.GetComponent<IngredientInstance>().GoToTable();
+                        //collision.gameObject.GetComponent<IngredientInstance>().GoToTable();
                         stationListIngredients.RemoveAt(stationListIngredients.Count - 1);
                     }
                     break;
@@ -74,7 +70,7 @@ public class Station : MonoBehaviour
 
             //Debug.Log("CutBool : " + collision.gameObject.GetComponent<Animator>().GetBool("Cut"));
 
-            CanCooked();
+            CanButtonAppear();
         }
     }
 
@@ -84,7 +80,7 @@ public class Station : MonoBehaviour
         List<float> distList = new List<float>();
         List<Transform> trList = new List<Transform>();
 
-        foreach(Transform tr in stationSlots)
+        foreach (Transform tr in stationSlots)
         {
             if (!tr.GetComponent<Slot>().occupied)
             {
@@ -99,39 +95,52 @@ public class Station : MonoBehaviour
 
         collisionTr.position = trList[index].position;
 
-        foreach(Transform tr in stationSlots)
+        foreach (Transform tr in stationSlots)
         {
             float dist;
 
             dist = Vector3.Distance(tr.position, trList[index].position);
 
-            if(dist <= 0.01f)
+            if (dist <= 0.01f)
             {
                 tr.gameObject.GetComponent<Slot>().occupied = true;
                 _collision.gameObject.GetComponent<IngredientInstance>().slot = tr.gameObject.GetComponent<Slot>();
             }
         }
 
-        CanCooked();
+        CanButtonAppear();
     }
 
     public void Cuire()
     {
-        foreach(IngredientInstance ingredient in stationListIngredients)
+        foreach (IngredientInstance ingredient in stationListIngredients)
         {
             ingredient.cooked = true;
         }
     }
 
-    public void CanCooked()
+    public void CanButtonAppear()
     {
-        /*if(stationListIngredients.Count != 0)
+        if (stationListIngredients.Count != 0)
         {
-            cookedButton.gameObject.SetActive(true);
+            button.gameObject.SetActive(true);
         }
         else
         {
-            cookedButton.gameObject.SetActive(false);
-        }*/
+            button.gameObject.SetActive(false);
+        }
+    }
+
+    public void Cut()
+    {
+        Debug.Log(stationListIngredients[0]);
+        if (stationListIngredients[0] != null)
+        {
+            //stationListIngredients[0].gameObject.GetComponent<Animator>().SetBool("Cut", true);
+            stationListIngredients[0].gameObject.GetComponent<Move>().cuttingGame = true;
+            stationListIngredients[0].gameObject.GetComponent<IngredientInstance>().cutted = true;
+            stationListIngredients[0].gameObject.GetComponent<BoxCollider>().size = new Vector3(4f, 1.5f, 2.27f);
+            button.gameObject.SetActive(false);
+        }
     }
 }

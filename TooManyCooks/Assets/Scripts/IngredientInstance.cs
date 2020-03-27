@@ -12,9 +12,4 @@ public class IngredientInstance : MonoBehaviour
     public bool breaded;
 
     public Slot slot;
-
-    public void GoToTable()
-    {
-        Debug.Log(gameObject.name + ", Go to Table");
-    }
 }
