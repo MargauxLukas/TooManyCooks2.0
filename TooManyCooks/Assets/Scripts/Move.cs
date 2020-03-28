@@ -85,6 +85,7 @@ public class Move : MonoBehaviour
                 {
                     if (touchPos.x > -6 && touchPos.x < 2.5f && touchPos.y < 1 && touchPos.y > -5)
                     {
+                        float time = Camera.main.GetComponent<AudioController>().time;
                         Debug.Log(touchCount);
                         touchCount++;
 
@@ -94,27 +95,63 @@ public class Move : MonoBehaviour
                         {
                             test.SetFloat("Vector1_1DD39ACC", 1.4f);
                         }
-                        if (touchCount == 2)
+                        else if (touchCount == 2)
                         {
                             test.SetFloat("Vector1_1DD39ACC", 1.2f);
                         }
-                        if (touchCount == 3)
+                        else if (touchCount == 3)
                         {
                             test.SetFloat("Vector1_1DD39ACC", 1f);
                         }
-                        if (touchCount == 4)
+                        else if (touchCount == 4)
                         {
                             test.SetFloat("Vector1_1DD39ACC", 0.8f);
                         }
-                        if (touchCount == 5)
+                        else if (touchCount == 5)
                         {
                             test.SetFloat("Vector1_1DD39ACC", 0.6f);
                         }
-                        if (touchCount == 6)
+                        else if (touchCount == 6)
                         {
                             gameObject.GetComponent<Animator>().SetBool("Cut", true);
                             cuttingGame = false;
                         }
+
+                        if (Camera.main.GetComponent<AudioController>().tempo60)
+                        {
+                            if (time > 0.80f || time < 0.10f)
+                            {
+                                Debug.Log("En rythme !");
+                            }
+                            else
+                            {
+                                Debug.Log("T'es nul");
+                            }
+                        }
+                        else if (Camera.main.GetComponent<AudioController>().tempo90)
+                        {
+                            if (time > 0.50f || time < 0.15f)
+                            {
+                                Debug.Log("En rythme !");
+                            }
+                            else
+                            {
+                                Debug.Log("T'es nul");
+                            }
+                        }
+                        else if (Camera.main.GetComponent<AudioController>().tempo120)
+                        {
+                            if (time > 0.40f || time < 0.10f)
+                            {
+                                Debug.Log("En rythme !");
+                            }
+                            else
+                            {
+                                Debug.Log("T'es nul");
+                            }
+                        }
+
+                        Debug.Log(time);
                     }
                 }
             }
@@ -179,11 +216,11 @@ public class Move : MonoBehaviour
         Vector3 saveValue;
         if (startPos > endPos && swipeDifference > 3f)  //Droite
         {
-            Debug.Log("Droite");
+            OnRythm();
         }
         else if(startPos < endPos && swipeDifference > 3f)  //Gauche
         {
-            Debug.Log("Gauche");
+            OnRythm();
         }
         else
         {
@@ -193,5 +230,46 @@ public class Move : MonoBehaviour
         saveValue = upBar.transform.position;
         upBar.transform.position = downBar.transform.position;
         downBar.transform.position = saveValue;
+    }
+
+    void OnRythm()
+    {
+        float time = Camera.main.GetComponent<AudioController>().time;
+
+        if (Camera.main.GetComponent<AudioController>().tempo60)
+        {
+            if (time > 0.80f || time < 0.10f)
+            {
+                Debug.Log("En rythme !");
+            }
+            else
+            {
+                Debug.Log("T'es nul");
+            }
+        }
+        else if (Camera.main.GetComponent<AudioController>().tempo90)
+        {
+            if (time > 0.50f || time < 0.15f)
+            {
+                Debug.Log("En rythme !");
+            }
+            else
+            {
+                Debug.Log("T'es nul");
+            }
+        }
+        else if (Camera.main.GetComponent<AudioController>().tempo120)
+        {
+            if (time > 0.40f || time < 0.10f)
+            {
+                Debug.Log("En rythme !");
+            }
+            else
+            {
+                Debug.Log("T'es nul");
+            }
+        }
+
+        Debug.Log(time);
     }
 }
