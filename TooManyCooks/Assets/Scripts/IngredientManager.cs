@@ -25,16 +25,18 @@ public class IngredientManager : MonoBehaviour
 
         if (random <= 3)
         {
-            GameObject ingredientSpawn = Instantiate(prefab, new Vector3(t.position.x + 0.1f, t.position.y - 0.6f, -0.75f), Quaternion.identity, t);
+            GameObject ingredientSpawn = Instantiate(prefab, new Vector3(t.position.x + 0.1f, t.position.y - 0.6f, -1.40f), Quaternion.identity, t);
+            ingredientSpawn.GetComponent<IngredientInstance>().slotTable = t.gameObject.GetComponent<TableSlot>();
 
             ingredientSpawn.GetComponent<IngredientInstance>().ingredient = ingredientList[Random.Range(0, ingredientList.Count)];
+            ingredientSpawn.transform.rotation = Quaternion.Euler(0f, -180f, -26.501f);
 
             List<GameObject> childs = new List<GameObject>();
             Material mat = ingredientSpawn.GetComponent<IngredientInstance>().ingredient.visual;
 
             foreach (GameObject g in childs = UtilityFunctions.instance.GetAllChildren(ingredientSpawn))
             {
-                //g.GetComponent<MeshRenderer>().material = mat;
+                g.GetComponent<MeshRenderer>().material = mat;
             }
 
             return ingredientSpawn;

@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
     private Vector3 touchPos;
     [HideInInspector] public bool isTouched;
+    public bool justDropped = false;
 
     public bool cuttingGame = false;
     public bool cookingGame = false;
 
     public int touchCount = 0;
 
+    public float startPos;
+    public float endPos;
+    public float swipeDifference;
+
     [HideInInspector] public Camera cam;
+
+    public GameObject upBar;
+    public GameObject downBar;
 
     void Start()
     {
@@ -21,6 +30,11 @@ public class Move : MonoBehaviour
 
     void Update()
     {
+        if(gameObject.GetComponent<IngredientInstance>().slot == null && gameObject.GetComponent<IngredientInstance>().slotTable == null && !isTouched)
+        {
+            Destroy(gameObject);
+        }
+
         if (!cuttingGame && !cookingGame)
         {
             if (Input.touchCount > 0)
@@ -43,6 +57,7 @@ public class Move : MonoBehaviour
                             {
                                 transform.parent.GetComponent<TableSlot>().occupied = false;
                                 transform.parent.GetComponent<TableSlot>().ingredient = null;
+                                GetComponent<IngredientInstance>().slotTable = null;
                                 transform.parent = null;
                             }
                         }
@@ -51,6 +66,7 @@ public class Move : MonoBehaviour
 
                     if (touch.phase == TouchPhase.Ended)
                     {
+                        justDropped = true;
                         isTouched = false;
                         transform.position = new Vector3(touchPos.x, touchPos.y, -0.75f);
                     }
@@ -60,7 +76,7 @@ public class Move : MonoBehaviour
             {
                 isTouched = false;
             }
-            Debug.Log("isTouched : " + isTouched);
+            //Debug.Log("isTouched : " + isTouched);
         }
         else if (cuttingGame)
         {
@@ -75,6 +91,7 @@ public class Move : MonoBehaviour
                 {
                     if (touchPos.x > -6 && touchPos.x < 2.5f && touchPos.y < 1 && touchPos.y > -5)
                     {
+                        float time = Camera.main.GetComponent<AudioController>().time;
                         Debug.Log(touchCount);
                         touchCount++;
 
@@ -84,29 +101,98 @@ public class Move : MonoBehaviour
                         {
                             test.SetFloat("Vector1_1DD39ACC", 1.4f);
                         }
-                        if (touchCount == 2)
+                        else if (touchCount == 2)
                         {
                             test.SetFloat("Vector1_1DD39ACC", 1.2f);
                         }
-                        if (touchCount == 3)
+                        else if (touchCount == 3)
                         {
                             test.SetFloat("Vector1_1DD39ACC", 1f);
                         }
-                        if (touchCount == 4)
+                        else if (touchCount == 4)
                         {
                             test.SetFloat("Vector1_1DD39ACC", 0.8f);
                         }
-                        if (touchCount == 5)
+                        else if (touchCount == 5)
                         {
                             test.SetFloat("Vector1_1DD39ACC", 0.6f);
                         }
-                        if (touchCount == 6)
+                        else if (touchCount == 6)
                         {
                             gameObject.GetComponent<Animator>().SetBool("Cut", true);
                             cuttingGame = false;
                         }
+
+                        if (Camera.main.GetComponent<AudioController>().tempo60)
+                        {
+                            if (time > 0.80f || time < 0.10f)
+                            {
+                                Debug.Log("En rythme !");
+                            }
+                            else
+                            {
+                                Debug.Log("T'es nul");
+                            }
+                        }
+                        else if (Camera.main.GetComponent<AudioController>().tempo90)
+                        {
+                            if (time > 0.50f || time < 0.15f)
+                            {
+                                Debug.Log("En rythme !");
+                            }
+                            else
+                            {
+                                Debug.Log("T'es nul");
+                            }
+                        }
+                        else if (Camera.main.GetComponent<AudioController>().tempo120)
+                        {
+                            if (time > 0.40f || time < 0.10f)
+                            {
+                                Debug.Log("En rythme !");
+                            }
+                            else
+                            {
+                                Debug.Log("T'es nul");
+                            }
+                        }
+
+                        Debug.Log(time);
                     }
                 }
+            }
+        }
+        else if(cookingGame)
+        {
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+                touchPos = cam.ScreenToWorldPoint(touch.position);
+                touchPos.z = 0;
+
+                if (touch.phase == TouchPhase.Began)
+                {
+                    /*if (touchPos.x > 3 && touchPos.x < 11f && touchPos.y < 5 && touchPos.y > -2)
+                    {*/
+                        startPos = touchPos.x;
+                    //}
+                }
+
+                if(touch.phase == TouchPhase.Ended)
+                {
+                    /*if (touchPos.x > 3 && touchPos.x < 11f && touchPos.y < 5 && touchPos.y > -2)
+                    {*/
+                        endPos = touchPos.x;
+                        Swipe();
+                    //}
+                }
+            }
+
+            if(upBar.transform.GetChild(1).GetComponent<Image>().fillAmount == 1 && downBar.transform.GetChild(1).GetComponent<Image>().fillAmount == 1)
+            {
+                //MiniGameFini
+                upBar.transform.parent.gameObject.SetActive(false);
+                cookingGame = false;
             }
         }
     }
@@ -126,7 +212,70 @@ public class Move : MonoBehaviour
                     isTouched = true;
                 }
             }
-            Debug.Log(hit.collider);
+            //Debug.Log(hit.collider);
         }
+    }
+
+    void Swipe()
+    {
+        swipeDifference = Mathf.Abs(startPos - endPos);
+        Vector3 saveValue;
+        if (startPos > endPos && swipeDifference > 3f)  //Droite
+        {
+            OnRythm();
+        }
+        else if(startPos < endPos && swipeDifference > 3f)  //Gauche
+        {
+            OnRythm();
+        }
+        else
+        {
+            return;
+        }
+
+        saveValue = upBar.transform.position;
+        upBar.transform.position = downBar.transform.position;
+        downBar.transform.position = saveValue;
+    }
+
+    void OnRythm()
+    {
+        float time = Camera.main.GetComponent<AudioController>().time;
+
+        if (Camera.main.GetComponent<AudioController>().tempo60)
+        {
+            if (time > 0.80f || time < 0.10f)
+            {
+                Debug.Log("En rythme !");
+            }
+            else
+            {
+                Debug.Log("T'es nul");
+            }
+        }
+        else if (Camera.main.GetComponent<AudioController>().tempo90)
+        {
+            if (time > 0.50f || time < 0.15f)
+            {
+                Debug.Log("En rythme !");
+            }
+            else
+            {
+                Debug.Log("T'es nul");
+            }
+        }
+        else if (Camera.main.GetComponent<AudioController>().tempo120)
+        {
+            if (time > 0.40f || time < 0.10f)
+            {
+                Debug.Log("En rythme !");
+            }
+            else
+            {
+                Debug.Log("T'es nul");
+            }
+        }
+
+        Debug.Log(time);
     }
 }

@@ -16,6 +16,9 @@ public class Station : MonoBehaviour
     public List<Transform> stationSlots;
 
     public Button button;
+    public GameObject canvas;
+
+    public GameObject ingredientMix;
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -35,7 +38,6 @@ public class Station : MonoBehaviour
                     }
                     else
                     {
-                        //collision.gameObject.GetComponent<IngredientInstance>().GoToTable();
                         stationListIngredients.RemoveAt(stationListIngredients.Count - 1);
                     }
                     break;
@@ -48,7 +50,6 @@ public class Station : MonoBehaviour
                     }
                     else
                     {
-                        //collision.gameObject.GetComponent<IngredientInstance>().GoToTable();
                         stationListIngredients.RemoveAt(stationListIngredients.Count - 1);
                     }
                     break;
@@ -64,13 +65,13 @@ public class Station : MonoBehaviour
         if (collision.gameObject.GetComponent<IngredientInstance>())
         {
             stationListIngredients.Remove(collision.gameObject.GetComponent<IngredientInstance>());
-            //Debug.Log("StationListCount : " + stationListIngredients.Count);
 
-            collision.gameObject.GetComponent<IngredientInstance>().slot.occupied = false;
+            collision.gameObject.GetComponent<IngredientInstance>().slot = null;
+            stationSlots[0].gameObject.GetComponent<Slot>().occupied = false;
 
             //Debug.Log("CutBool : " + collision.gameObject.GetComponent<Animator>().GetBool("Cut"));
 
-            CanButtonAppear();
+            SetButton();
         }
     }
 
@@ -108,26 +109,65 @@ public class Station : MonoBehaviour
             }
         }
 
-        CanButtonAppear();
+        SetButton();
     }
 
-    public void Cuire()
+    public void Cook()
     {
+        List<GameObject> listChild;
         foreach (IngredientInstance ingredient in stationListIngredients)
         {
             ingredient.cooked = true;
+            listChild = UtilityFunctions.instance.GetAllChildren(ingredient.gameObject);
+            //ingredient.gameObject.SetActive(false);
+
+            foreach(GameObject go in listChild)
+            {
+                go.SetActive(false);
+            }
         }
+
+        ingredientMix = Instantiate(StationsManager.instance.ingredientMixPrefab, new Vector3(6.87f, 0f, -0.66f), Quaternion.identity);
+
+        foreach (IngredientInstance ingredient in stationListIngredients)
+        {
+            ingredient.transform.parent = ingredientMix.transform;
+        }
+        /*stationListIngredients.Clear();
+        stationListIngredients.Add(ingredientMix.GetComponent<IngredientInstance>());*/
+
+        ingredientMix.GetComponent<Move>().cookingGame = true;
+        ingredientMix.GetComponent<Move>().upBar = canvas.transform.GetChild(0).gameObject;
+        ingredientMix.GetComponent<Move>().downBar = canvas.transform.GetChild(1).gameObject;
+
+        
+        canvas.SetActive(true);
+
     }
 
-    public void CanButtonAppear()
+    public void SetButton()
     {
-        if (stationListIngredients.Count != 0)
+        if (stationType == StationType.CampFire)
         {
-            button.gameObject.SetActive(true);
+            if (stationListIngredients.Count == 3)
+            {
+                button.gameObject.SetActive(true);
+            }
+            else
+            {
+                button.gameObject.SetActive(false);
+            }
         }
-        else
+        if(stationType == StationType.KitchenCounter)
         {
-            button.gameObject.SetActive(false);
+            if (stationListIngredients.Count == 1)
+            {
+                button.gameObject.SetActive(true);
+            }
+            else
+            {
+                button.gameObject.SetActive(false);
+            }
         }
     }
 

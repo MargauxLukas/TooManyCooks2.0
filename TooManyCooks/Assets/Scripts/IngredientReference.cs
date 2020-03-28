@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IngredientReference : MonoBehaviour
 {
-    [HideInInspector] public Ingredient ingredient;
+    public Ingredient ingredient;
 
     public bool cutted;
     public bool cooked;

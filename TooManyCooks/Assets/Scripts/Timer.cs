@@ -42,7 +42,6 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 0;
                 transform.parent.gameObject.SetActive(false);
                 timerBar.fillAmount = 1f;
 

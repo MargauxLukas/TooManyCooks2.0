@@ -72,8 +72,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 2.2732892}
-  m_Center: {x: 0, y: 0.75, z: -0.38664448}
+  m_Size: {x: 2.898387, y: 2.5759304, z: 2.3964503}
+  m_Center: {x: -0.052829582, y: 0.7321507, z: 0.37340212}
 --- !u!54 &1558495186145257582
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -103,7 +103,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTouched: 0
+  justDropped: 0
+  cuttingGame: 0
+  cookingGame: 0
+  touchCount: 0
+  startPos: 0
+  endPos: 0
+  swipeDifference: 0
   cam: {fileID: 0}
+  upBar: {fileID: 0}
+  downBar: {fileID: 0}
 --- !u!114 &7642387660441111467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +131,7 @@ MonoBehaviour:
   fried: 0
   breaded: 0
   slot: {fileID: 0}
+  slotTable: {fileID: 0}
 --- !u!1 &2573651333907912840
 GameObject:
   m_ObjectHideFlags: 0
