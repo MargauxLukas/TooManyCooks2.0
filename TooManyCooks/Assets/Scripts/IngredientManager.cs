@@ -34,7 +34,7 @@ public class IngredientManager : MonoBehaviour
 
             foreach (GameObject g in childs = UtilityFunctions.instance.GetAllChildren(ingredientSpawn))
             {
-                //g.GetComponent<MeshRenderer>().material = mat;
+                g.GetComponent<MeshRenderer>().material = mat;
             }
 
             return ingredientSpawn;

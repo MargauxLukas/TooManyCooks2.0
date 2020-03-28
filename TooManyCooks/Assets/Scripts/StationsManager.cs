@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class StationsManager : MonoBehaviour
 {
+    public static StationsManager instance;
+
     public List<Station> existingStations;
     public List<Station> chosenStations;
 
+    public GameObject ingredientMixPrefab;
+
     private void Awake()
     {
+        Init();
         InstantiateStations();
         ResetStationCode();
         GetStationCode();
+    }
+
+    public virtual void Init()
+    {
+        instance = this;
     }
 
     void InstantiateStations()

@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
     private Vector3 touchPos;
     [HideInInspector] public bool isTouched;
+    public bool justDropped = false;
 
     public bool cuttingGame = false;
     public bool cookingGame = false;
 
     public int touchCount = 0;
 
+    public float startPos;
+    public float endPos;
+    public float swipeDifference;
+
     [HideInInspector] public Camera cam;
+
+    public GameObject upBar;
+    public GameObject downBar;
 
     void Start()
     {
@@ -51,6 +60,7 @@ public class Move : MonoBehaviour
 
                     if (touch.phase == TouchPhase.Ended)
                     {
+                        justDropped = true;
                         isTouched = false;
                         transform.position = new Vector3(touchPos.x, touchPos.y, -0.75f);
                     }
@@ -60,7 +70,7 @@ public class Move : MonoBehaviour
             {
                 isTouched = false;
             }
-            Debug.Log("isTouched : " + isTouched);
+            //Debug.Log("isTouched : " + isTouched);
         }
         else if (cuttingGame)
         {
@@ -109,6 +119,39 @@ public class Move : MonoBehaviour
                 }
             }
         }
+        else if(cookingGame)
+        {
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+                touchPos = cam.ScreenToWorldPoint(touch.position);
+                touchPos.z = 0;
+
+                if (touch.phase == TouchPhase.Began)
+                {
+                    /*if (touchPos.x > 3 && touchPos.x < 11f && touchPos.y < 5 && touchPos.y > -2)
+                    {*/
+                        startPos = touchPos.x;
+                    //}
+                }
+
+                if(touch.phase == TouchPhase.Ended)
+                {
+                    /*if (touchPos.x > 3 && touchPos.x < 11f && touchPos.y < 5 && touchPos.y > -2)
+                    {*/
+                        endPos = touchPos.x;
+                        Swipe();
+                    //}
+                }
+            }
+
+            if(upBar.transform.GetChild(1).GetComponent<Image>().fillAmount == 1 && downBar.transform.GetChild(1).GetComponent<Image>().fillAmount == 1)
+            {
+                //MiniGameFini
+                upBar.transform.parent.gameObject.SetActive(false);
+                cookingGame = false;
+            }
+        }
     }
 
     void TouchObject()
@@ -126,7 +169,29 @@ public class Move : MonoBehaviour
                     isTouched = true;
                 }
             }
-            Debug.Log(hit.collider);
+            //Debug.Log(hit.collider);
         }
+    }
+
+    void Swipe()
+    {
+        swipeDifference = Mathf.Abs(startPos - endPos);
+        Vector3 saveValue;
+        if (startPos > endPos && swipeDifference > 3f)  //Droite
+        {
+            Debug.Log("Droite");
+        }
+        else if(startPos < endPos && swipeDifference > 3f)  //Gauche
+        {
+            Debug.Log("Gauche");
+        }
+        else
+        {
+            return;
+        }
+
+        saveValue = upBar.transform.position;
+        upBar.transform.position = downBar.transform.position;
+        downBar.transform.position = saveValue;
     }
 }

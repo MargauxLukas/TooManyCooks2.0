@@ -21,6 +21,11 @@ public class EnterTable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.name.Contains("IngredientsMix"))
+        {
+            Debug.Log("test");
+        }
+
         if (!ToLeft)
         {
             if (other.gameObject.GetComponent<TableSlot>())
@@ -33,10 +38,14 @@ public class EnterTable : MonoBehaviour
         }
         else
         {
-            if (other.gameObject.GetComponent<TableSlot>())
+            if (other.gameObject.transform.childCount > 0 && !other.gameObject.name.Contains("IngredientsMix"))
             {
-                Destroy(other.gameObject.transform.GetChild(0).gameObject);
-                other.gameObject.GetComponent<TableSlot>().ingredient = null;
+                if (other.gameObject.GetComponent<TableSlot>())
+                {
+                    Destroy(other.gameObject.transform.GetChild(0).gameObject);
+                    other.gameObject.GetComponent<TableSlot>().ingredient = null;
+                    other.gameObject.GetComponent<TableSlot>().occupied = false;
+                }
             }
         }
     }

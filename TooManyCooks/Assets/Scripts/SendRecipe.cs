@@ -13,6 +13,7 @@ public class SendRecipe : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("IngredientsMix"))
         {
+            Debug.Log("J'ai capté que c'était un IngredientsMix");
             List<GameObject> ingredients = new List<GameObject>();
             ingredients = UtilityFunctions.instance.GetAllChildren(collision.gameObject);
             CheckIngredients(collision, ingredients);
@@ -28,6 +29,7 @@ public class SendRecipe : MonoBehaviour
         {
             List<GameObject> ingredients = new List<GameObject>();
             ingredients = UtilityFunctions.instance.GetAllChildren(recipe);
+            score = 0;
 
             foreach (GameObject _ingredient in _collisionIngredients)
             {
@@ -38,6 +40,11 @@ public class SendRecipe : MonoBehaviour
                     if (type == i.GetComponent<IngredientReference>().ingredient.type)
                     {
                         CheckState(i, _ingredient);
+
+                        if(score == _collisionIngredients.Count)
+                        {
+                            return;
+                        }
                     }
                 }
             }
@@ -54,6 +61,7 @@ public class SendRecipe : MonoBehaviour
                 {
                     if (reference.GetComponent<IngredientReference>().breaded == product.GetComponent<IngredientInstance>().breaded)
                     {
+                        Debug.Log("Bien joué, c'est les mêmes");
                         score++;
                     }
                 }
@@ -65,12 +73,14 @@ public class SendRecipe : MonoBehaviour
     {
         if(score == _collisionIngredients.Count)
         {
+            Debug.Log("Plat Parfait");
             //WinPoints();
             SendPlate(_collision.gameObject);
         }
         else
         {
-            //Strike();
+            Debug.Log("C'est de la merde");
+            GameManager.instance.Strike();
             SendPlate(_collision.gameObject);
         }
     }

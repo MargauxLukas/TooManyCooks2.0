@@ -432,7 +432,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1609262217
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b5e52b759f09a6b48a770f81d420e654, type: 3}
   m_Color: {r: 0.8490566, g: 0.6254193, b: 0.28435388, a: 1}
@@ -635,7 +635,8 @@ MonoBehaviour:
   stationListIngredients: []
   stationSlots:
   - {fileID: 1250835135}
-  cookedButton: {fileID: 0}
+  button: {fileID: 0}
+  ingredientMix: {fileID: 0}
 --- !u!65 &357295296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -893,6 +894,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTouched: 0
+  cuttingGame: 0
+  cookingGame: 0
+  touchCount: 0
   cam: {fileID: 963194227}
 --- !u!65 &587421788
 BoxCollider:
@@ -985,6 +989,7 @@ MonoBehaviour:
   cooked: 0
   fried: 0
   breaded: 0
+  slot: {fileID: 0}
 --- !u!1 &591122300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1058,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1609262217
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b5e52b759f09a6b48a770f81d420e654, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1279,7 +1284,8 @@ MonoBehaviour:
   - {fileID: 1834273038}
   - {fileID: 1098106724}
   - {fileID: 546859525}
-  cookedButton: {fileID: 1195637635}
+  button: {fileID: 0}
+  ingredientMix: {fileID: 0}
 --- !u!65 &788447703
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2163,7 +2169,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1609262217
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b5e52b759f09a6b48a770f81d420e654, type: 3}
   m_Color: {r: 0.14653791, g: 0.8396226, b: 0.40124956, a: 1}
@@ -2437,6 +2443,7 @@ MonoBehaviour:
   - {fileID: 1112999537}
   - {fileID: 1914935859}
   - {fileID: 1171895765}
+  actualRecipeNum: 0
   timeBeforeNewRecipe: 30
 --- !u!4 &1682913620
 Transform:
@@ -2468,6 +2475,7 @@ MonoBehaviour:
   chosenStations:
   - {fileID: 357295295}
   - {fileID: 788447702}
+  ingredientMixPrefab: {fileID: 0}
 --- !u!114 &1682913622
 MonoBehaviour:
   m_ObjectHideFlags: 0

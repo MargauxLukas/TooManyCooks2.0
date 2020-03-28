@@ -8,7 +8,7 @@ public class TableEnter : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<Move>() && other.gameObject.GetComponent<Move>().isTouched == false)
+        if(other.gameObject.GetComponent<Move>() && other.gameObject.GetComponent<Move>().justDropped)
         {
             foreach(GameObject plate in plateList)
             {
@@ -19,6 +19,7 @@ public class TableEnter : MonoBehaviour
                         other.transform.position = new Vector3(plate.transform.position.x + 0.1f, plate.transform.position.y - 0.6f, -0.75f);
                         other.transform.parent = plate.transform;
                         plate.GetComponent<TableSlot>().occupied = true;
+                        other.gameObject.GetComponent<Move>().justDropped = false;
                     }
                 }
             }

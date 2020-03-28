@@ -8,7 +8,7 @@ public class TableSlot : MonoBehaviour
     public bool occupied = false;
     public GameObject prefab;
 
-    void Start()
+    /*void Start()
     {
         ingredient = IngredientManager.instance.SpawnIngredient(transform);
 
@@ -21,7 +21,7 @@ public class TableSlot : MonoBehaviour
             occupied = false;
         }
 
-        /*GameObject ingredientSpawn = Instantiate(prefab, transform.position, Quaternion.identity, transform);
+        GameObject ingredientSpawn = Instantiate(prefab, transform.position, Quaternion.identity, transform);
 
         foreach(Ingredient i in IngredientManager.instance.ingredientList)
         {
@@ -32,8 +32,8 @@ public class TableSlot : MonoBehaviour
 
         ingredientSpawn.transform.GetChild(0).GetComponent<MeshRenderer>().material = ingredientSpawn.GetComponent<IngredientInstance>().ingredient.visual;
 
-        ingredient = ingredientSpawn;*/
-    }
+        ingredient = ingredientSpawn;
+    }*/
 
     public void Spawn()
     {
