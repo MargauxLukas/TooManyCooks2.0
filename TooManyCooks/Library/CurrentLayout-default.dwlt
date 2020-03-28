@@ -93,7 +93,7 @@ MonoBehaviour:
   - {fileID: 7}
   m_Position:
     serializedVersion: 2
-    x: 0
+    x: 1134
     y: 0
     width: 1920
     height: 997
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scripts
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\aoyam\OneDrive\Documents\TMC2\TooManyCooks2.0\TooManyCooks
+  m_LastProjectPath: D:\Rubika\Jeu Mobile B3\Git\Too many cooks v2\TooManyCooks2.0\TooManyCooks
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
