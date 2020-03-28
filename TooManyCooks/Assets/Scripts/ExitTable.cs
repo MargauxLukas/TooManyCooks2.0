@@ -11,11 +11,11 @@ public class ExitTable : MonoBehaviour
     {
         if (tableAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("D"))
         {
-            ToLeft = true;
+            ToLeft = false;
         }
         else
         {
-            ToLeft = false;
+            ToLeft = true;
         }
 
     }

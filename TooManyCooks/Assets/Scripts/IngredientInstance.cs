@@ -12,4 +12,5 @@ public class IngredientInstance : MonoBehaviour
     public bool breaded;
 
     public Slot slot;
+    public TableSlot slotTable;
 }

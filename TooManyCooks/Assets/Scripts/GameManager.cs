@@ -118,9 +118,17 @@ public class GameManager : MonoBehaviour
     public void Strike()
     {
         life--;
-        Debug.Log(life);
+        if(life == 2)
+        {
+            transform.GetChild(0).transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color32(217, 44, 56, 255);
+        }
+        if(life == 1)
+        {
+            transform.GetChild(0).transform.GetChild(1).GetComponent<SpriteRenderer>().color = new Color32(217, 44, 56, 255);
+        }
         if(life == 0)
         {
+            transform.GetChild(0).transform.GetChild(2).GetComponent<SpriteRenderer>().color = new Color32(217,44,56,255);
             //Perdu
         }
     }

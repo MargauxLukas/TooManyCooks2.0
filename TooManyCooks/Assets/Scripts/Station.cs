@@ -38,7 +38,6 @@ public class Station : MonoBehaviour
                     }
                     else
                     {
-                        //collision.gameObject.GetComponent<IngredientInstance>().GoToTable();
                         stationListIngredients.RemoveAt(stationListIngredients.Count - 1);
                     }
                     break;
@@ -51,7 +50,6 @@ public class Station : MonoBehaviour
                     }
                     else
                     {
-                        //collision.gameObject.GetComponent<IngredientInstance>().GoToTable();
                         stationListIngredients.RemoveAt(stationListIngredients.Count - 1);
                     }
                     break;

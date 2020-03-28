@@ -30,6 +30,11 @@ public class Move : MonoBehaviour
 
     void Update()
     {
+        if(gameObject.GetComponent<IngredientInstance>().slot == null && gameObject.GetComponent<IngredientInstance>().slotTable == null && !isTouched)
+        {
+            Destroy(gameObject);
+        }
+
         if (!cuttingGame && !cookingGame)
         {
             if (Input.touchCount > 0)
@@ -52,6 +57,7 @@ public class Move : MonoBehaviour
                             {
                                 transform.parent.GetComponent<TableSlot>().occupied = false;
                                 transform.parent.GetComponent<TableSlot>().ingredient = null;
+                                GetComponent<IngredientInstance>().slotTable = null;
                                 transform.parent = null;
                             }
                         }

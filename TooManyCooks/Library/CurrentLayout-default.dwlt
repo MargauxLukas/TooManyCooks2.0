@@ -72,9 +72,9 @@ MonoBehaviour:
     width: 714
     height: 947
   m_MinSize: {x: 276, y: 192}
-  m_MaxSize: {x: 4002, y: 8042}
+  m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 5221
+  controlID: 63
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 66
+  controlID: 69
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -194,9 +194,9 @@ MonoBehaviour:
     width: 1920
     height: 947
   m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14003, y: 14042}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 60
+  controlID: 62
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 65
+  controlID: 95
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -352,6 +352,7 @@ MonoBehaviour:
   m_ViewTransforms:
     m_KeySerializationHelper:
     - {fileID: 2440744495304272943, guid: 770dd763ef1f619408eb0cee5669818e, type: 2}
+    - {fileID: -8392509619461598574, guid: aa59089b56b074d49a0c46bf510a0b31, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.5426892
       e01: 0
@@ -369,11 +370,27 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 770dd763ef1f619408eb0cee5669818e,
+  m_AnimatorController: {fileID: 9100000, guid: aa59089b56b074d49a0c46bf510a0b31,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 2440744495304272943, guid: 770dd763ef1f619408eb0cee5669818e,
+  - m_Target: {fileID: -8392509619461598574, guid: aa59089b56b074d49a0c46bf510a0b31,
       type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
@@ -494,24 +511,24 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
+      scrollPos: {x: 0, y: 329}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 72fbffff
+      m_ExpandedIDs: 386afeff606cfeff2673feffd474feff1a78feff1a81feff3685feffae88feff408ffeffbc92feff209bfeff26a2feff02aafeff62aafeffc2aafeff54b1feff6cb6feff62b7feff84b8feff8cf1feffecf1feff8403ffffd819ffffc229ffff162fffff087cffffde86fffffaa2ffffa8a4ffff10acffff1cbdffff18f7ffff72fbffff2a3c00007e3c0000a63c0000be3c0000f83c0000283d00003c3d00003e3d0000403d0000423d0000443d0000463d0000483d0000663d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Main Camera
-        m_OriginalName: Main Camera
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 15724
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 4
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -598,20 +615,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Prefabs
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\aoyam\OneDrive\Documents\TMC2\TooManyCooks2.0\TooManyCooks
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 063b0000
-    m_LastClickedID: 15110
-    m_ExpandedIDs: 00000000063b0000523f0000543f0000563f0000583f00005a3f000000ca9a3b
+    scrollPos: {x: 0, y: 71}
+    m_SelectedIDs: 2c400000
+    m_LastClickedID: 16428
+    m_ExpandedIDs: 00000000103b0000aa3f0000ac3f0000ae3f0000b03f0000dc3f0000de3f0000e23f0000ea3f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -639,7 +656,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000063b0000523f0000543f0000563f0000583f00005a3f0000
+    m_ExpandedIDs: 00000000103b0000aa3f0000ac3f0000ae3f0000b03f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -670,18 +687,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: 00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Support Rotatif Shader
+      m_OriginalName: Support Rotatif Shader
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 392
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_CreateAssetUtility:
@@ -731,9 +748,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.0680656, y: 3.619219, z: 1.442065}
+    m_Target: {x: 24.49135, y: 1.6949142, z: 57.675327}
     speed: 2
-    m_Value: {x: 3.0680656, y: 3.619219, z: 1.442065}
+    m_Value: {x: 24.49135, y: 1.6949142, z: 57.675327}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -779,17 +796,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.10181718, y: 0.011043938, z: 0.0011304747, w: 0.99474305}
+    m_Target: {x: -0.011797351, y: 0.1825608, z: 0.0021938737, w: 0.9831292}
     speed: 2
-    m_Value: {x: -0.101817004, y: 0.011043918, z: 0.0011304728, w: 0.99474126}
+    m_Value: {x: -0.011793955, y: 0.18403386, z: 0.00221155, w: 0.9828466}
   m_Size:
-    m_Target: 18.277792
+    m_Target: 82.05877
     speed: 2
-    m_Value: 18.277792
+    m_Value: 78.52514
   m_Ortho:
-    m_Target: 1
+    m_Target: 0
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.5
