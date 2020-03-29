@@ -17,6 +17,14 @@ public class GameManager : MonoBehaviour
     public int actualRecipeNum;
     public float timeBeforeNewRecipe = 30;
 
+    public bool meatMania = false;
+    public bool isWinter = false;
+
+    public int nbPlat;
+    public int nbPlatVoulu = 2;
+
+    public bool needRecipe = false;
+
     public int life = 3;
     private void Awake()
     {
@@ -32,6 +40,16 @@ public class GameManager : MonoBehaviour
     {
         recipeManager = RecipeManager.instance;
         StartCoroutine(InstanciateRecipes());
+    }
+
+    private void Update()
+    {
+        if(nbPlat == nbPlatVoulu)
+        {
+            Event();
+            nbPlatVoulu = 4;
+            nbPlat = 0;
+        }
     }
 
     IEnumerator InstanciateRecipes()
@@ -50,13 +68,25 @@ public class GameManager : MonoBehaviour
                 chosenRecipesList.Add(instanciatedRecipe);
             }
 
-            UIImagesList[actualRecipeNum - 1].GetComponent<Image>().sprite = chosenRecipe.visual;
-            UIImagesList[actualRecipeNum - 1].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-            UIImagesList[actualRecipeNum - 1].transform.GetChild(0).gameObject.SetActive(true);
-            UIImagesList[actualRecipeNum - 1].GetComponent<UIRecipeManager>().recipeInstance = instanceGroup.GetChild(actualRecipeNum - 1).GetComponent<RecipeInstance>();
+            for (int i = 0; i < UIImagesList.Count; i++)
+            {
+                if (UIImagesList[i].GetComponent<Image>().sprite == null)
+                {
+                    UIImagesList[i].GetComponent<Image>().sprite = chosenRecipe.visual;
+                    UIImagesList[i].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+                    UIImagesList[i].transform.GetChild(0).gameObject.SetActive(true);
+                    UIImagesList[i].GetComponent<UIRecipeManager>().recipeInstance = instanceGroup.GetChild(i).GetComponent<RecipeInstance>();
+                    break;
+                }
+            }
 
             yield return new WaitForSeconds(timeBeforeNewRecipe);
 
+            StartCoroutine(InstanciateRecipes());  
+        }
+        else
+        {
+            yield return new WaitForSeconds(timeBeforeNewRecipe);
             StartCoroutine(InstanciateRecipes());
         }
     }
@@ -130,6 +160,33 @@ public class GameManager : MonoBehaviour
         {
             transform.GetChild(0).transform.GetChild(2).GetComponent<SpriteRenderer>().color = new Color32(217,44,56,255);
             //Perdu
+        }
+    }
+
+    public void Event()
+    {
+        if (meatMania || isWinter)
+        {
+            meatMania = false;
+            isWinter = false;
+        }
+        else
+        {
+            int random = Random.Range(0, 2);
+
+            if (random == 0)
+            {
+                //Timer + court
+                Debug.Log("meat");
+                meatMania = true;
+            }
+            if (random == 1)
+            {
+                //Chauffer = plus lent
+                Debug.Log("winter");
+                isWinter = true;
+
+            }
         }
     }
 }

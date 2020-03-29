@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ChickenSkewer
   m_EditorClassIdentifier: 
   type: 
-  visual: {fileID: 21300000, guid: d490270f8d81bae429cbfdfb3be93b50, type: 3}
+  visual: {fileID: 21300000, guid: c2919fc413f8fea4e9c5c84f0a99c4c4, type: 3}
   ingredientsList:
   - {fileID: 11400000, guid: b900bbb219a3c4948ad7b7a7347369f2, type: 2}
   - {fileID: 11400000, guid: c483e149f1a9d6143a9caf854ebd6ede, type: 2}

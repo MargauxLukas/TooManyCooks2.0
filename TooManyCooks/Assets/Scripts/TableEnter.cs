@@ -22,6 +22,7 @@ public class TableEnter : MonoBehaviour
                         other.transform.parent = plate.transform;
                         plate.GetComponent<TableSlot>().occupied = true;
                         other.gameObject.GetComponent<Move>().justDropped = false;
+                        return;
                     }
                 }
             }
@@ -44,6 +45,7 @@ public class TableEnter : MonoBehaviour
                         other.transform.parent = plate.transform;
                         plate.GetComponent<TableSlot>().occupied = true;
                         other.gameObject.GetComponent<Move>().justDropped = false;
+                        return;
                     }
                 }
             }

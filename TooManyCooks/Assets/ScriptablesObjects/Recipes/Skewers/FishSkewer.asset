@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FishSkewer
   m_EditorClassIdentifier: 
   type: 
-  visual: {fileID: 21300000, guid: e006edc6a887f1b47897464001bed3b1, type: 3}
+  visual: {fileID: 21300000, guid: 2bffe718c50552044a829f1bca929b44, type: 3}
   ingredientsList:
   - {fileID: 11400000, guid: b900bbb219a3c4948ad7b7a7347369f2, type: 2}
   - {fileID: 11400000, guid: 51e3166e51ecc4347a17a1e967147731, type: 2}

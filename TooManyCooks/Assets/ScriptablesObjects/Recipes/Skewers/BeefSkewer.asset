@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BeefSkewer
   m_EditorClassIdentifier: 
   type: 
-  visual: {fileID: 21300000, guid: 19b4fefffb9f1cb468fe38e5e47b1b0f, type: 3}
+  visual: {fileID: 21300000, guid: 59da34ebe77a6b4408398de0a45a3e58, type: 3}
   ingredientsList:
   - {fileID: 11400000, guid: b900bbb219a3c4948ad7b7a7347369f2, type: 2}
   - {fileID: 11400000, guid: f2c74dbeb001a2a41bfe3c1b684c1639, type: 2}

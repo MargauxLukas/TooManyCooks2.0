@@ -122,6 +122,7 @@ public class Station : MonoBehaviour
 
     public void Cook()
     {
+        button.gameObject.SetActive(false);
         int goodIngredient;
         bool goodRecette = false;
 
@@ -256,5 +257,17 @@ public class Station : MonoBehaviour
             //stationListIngredients[0].gameObject.GetComponent<BoxCollider>().size = new Vector3(4f, 1.5f, 2.27f);
             button.gameObject.SetActive(false);
         }
+    }
+
+    public void ActivateFinger(GameObject go)
+    {
+        StartCoroutine("Finger", go);
+    }
+
+    IEnumerator Finger(GameObject go)
+    {
+        go.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        go.SetActive(false);
     }
 }

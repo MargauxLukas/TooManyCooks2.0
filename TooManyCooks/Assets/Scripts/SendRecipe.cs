@@ -18,12 +18,14 @@ public class SendRecipe : MonoBehaviour
             ingredients = UtilityFunctions.instance.GetAllChildren(collision.gameObject);
             CheckIngredients(collision, ingredients);
             CompareScore(collision, ingredients);
+            GameManager.instance.nbPlat++;
         }
         if(collision.gameObject.name.Contains("PlatDouteux"))
         {
-            Debug.Log("C'ets quoi ce plat ?");
+            Debug.Log("C'est quoi ce plat ?");
             GameManager.instance.Strike();
             SendPlate(collision.gameObject);
+            GameManager.instance.nbPlat++;
         }
     }
 

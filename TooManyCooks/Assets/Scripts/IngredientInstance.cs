@@ -13,4 +13,5 @@ public class IngredientInstance : MonoBehaviour
 
     public Slot slot;
     public TableSlot slotTable;
+    public WaitingSlot wSlot;
 }

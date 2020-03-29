@@ -64,6 +64,12 @@ public class Move : MonoBehaviour
                                 GetComponent<IngredientInstance>().slotTable = null;
                                 transform.parent = null;
                             }
+                            else if(transform.parent.GetComponent<WaitingSlot>())
+                            {
+                                transform.parent.GetComponent<WaitingSlot>().occupied = false;
+                                GetComponent<IngredientInstance>().wSlot = null;
+                                transform.parent = null;
+                            }
                         }
 
                     }

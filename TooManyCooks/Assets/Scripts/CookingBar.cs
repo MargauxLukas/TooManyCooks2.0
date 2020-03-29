@@ -23,6 +23,15 @@ public class CookingBar : MonoBehaviour
 
     void Update()
     {
+        if(GameManager.instance.isWinter)
+        {
+            maxTime = 20f;
+        }
+        else
+        {
+            maxTime = 10f;
+        }
+
         if(otherTimer.transform.position.y > transform.position.y)
         {
             currentTime += Time.deltaTime;
