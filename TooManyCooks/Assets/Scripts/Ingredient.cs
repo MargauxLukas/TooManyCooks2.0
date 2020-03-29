@@ -13,3 +13,4 @@ public class Ingredient : ScriptableObject
     public bool fried;
     public bool breaded;*/
 }
+
