@@ -18,7 +18,7 @@ public class Station : MonoBehaviour
     public Button button;
     public GameObject canvas;
 
-    public GameObject ingredientMix;
+    private GameObject recipePrefab;
     public GameObject platDouteux;
 
     private void OnTriggerEnter(Collider collision)
@@ -137,15 +137,19 @@ public class Station : MonoBehaviour
                     {
                         foreach (IngredientInstance ingredientI in stationListIngredients)
                         {
-                            if (ingredientRecipe.name == ingredientI.ingredient.name)
+                            if (stationListIngredients[0].name != stationListIngredients[1].name)
                             {
-                                //Bon ingredient
-                                goodIngredient++;
-                            }
+                                if (ingredientRecipe.name == ingredientI.ingredient.name)
+                                {
+                                    //Bon ingredient
+                                    goodIngredient++;
+                                }
 
-                            if (goodIngredient == 3)
-                            {
-                                goodRecette = true;
+                                if (goodIngredient == 3)
+                                {
+                                    recipePrefab = recipe.prefab;
+                                    goodRecette = true;
+                                }
                             }
                         }
                     }
@@ -155,14 +159,13 @@ public class Station : MonoBehaviour
 
         if (goodRecette)
         {
-
             //BonPlat
             List<GameObject> listChild;
             foreach (IngredientInstance ingredient in stationListIngredients)
             {
                 ingredient.cooked = true;
                 listChild = UtilityFunctions.instance.GetAllChildren(ingredient.gameObject);
-                //ingredient.gameObject.SetActive(false);
+                ingredient.gameObject.SetActive(false);
 
                 foreach (GameObject go in listChild)
                 {
@@ -170,18 +173,18 @@ public class Station : MonoBehaviour
                 }
             }
 
-            ingredientMix = Instantiate(StationsManager.instance.ingredientMixPrefab, new Vector3(6.87f, 0f, -0.66f), Quaternion.identity);
+            GameObject recipeObtained = Instantiate(recipePrefab, new Vector3(5.30f, 0f, -1.32f), Quaternion.identity);
 
             foreach (IngredientInstance ingredient in stationListIngredients)
             {
-                ingredient.transform.parent = ingredientMix.transform;
+                ingredient.transform.parent = recipeObtained.transform;
             }
             /*stationListIngredients.Clear();
             stationListIngredients.Add(ingredientMix.GetComponent<IngredientInstance>());*/
 
-            ingredientMix.GetComponent<Move>().cookingGame = true;
-            ingredientMix.GetComponent<Move>().upBar = canvas.transform.GetChild(0).gameObject;
-            ingredientMix.GetComponent<Move>().downBar = canvas.transform.GetChild(1).gameObject;
+            recipeObtained.GetComponent<Move>().cookingGame = true;
+            recipeObtained.GetComponent<Move>().upBar = canvas.transform.GetChild(0).gameObject;
+            recipeObtained.GetComponent<Move>().downBar = canvas.transform.GetChild(1).gameObject;
 
             canvas.SetActive(true);
         }
@@ -193,7 +196,7 @@ public class Station : MonoBehaviour
             {
                 ingredient.cooked = true;
                 listChild = UtilityFunctions.instance.GetAllChildren(ingredient.gameObject);
-                //ingredient.gameObject.SetActive(false);
+                ingredient.gameObject.SetActive(false);
 
                 foreach (GameObject go in listChild)
                 {
@@ -201,7 +204,7 @@ public class Station : MonoBehaviour
                 }
             }
 
-            platDouteux = Instantiate(StationsManager.instance.platDouteux, new Vector3(6.87f, 0f, -0.66f), Quaternion.identity);
+            platDouteux = Instantiate(StationsManager.instance.platDouteux, new Vector3(5.30f, 0f, -1.32f), Quaternion.identity);
 
             foreach (IngredientInstance ingredient in stationListIngredients)
             {
@@ -250,7 +253,7 @@ public class Station : MonoBehaviour
             //stationListIngredients[0].gameObject.GetComponent<Animator>().SetBool("Cut", true);
             stationListIngredients[0].gameObject.GetComponent<Move>().cuttingGame = true;
             stationListIngredients[0].gameObject.GetComponent<IngredientInstance>().cutted = true;
-            stationListIngredients[0].gameObject.GetComponent<BoxCollider>().size = new Vector3(4f, 1.5f, 2.27f);
+            //stationListIngredients[0].gameObject.GetComponent<BoxCollider>().size = new Vector3(4f, 1.5f, 2.27f);
             button.gameObject.SetActive(false);
         }
     }

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b50665474ebe04893d64578044c630, type: 3}
   m_Name: ChickenSkewer
   m_EditorClassIdentifier: 
+  type: 
   visual: {fileID: 21300000, guid: d490270f8d81bae429cbfdfb3be93b50, type: 3}
   ingredientsList:
   - {fileID: 11400000, guid: b900bbb219a3c4948ad7b7a7347369f2, type: 2}
   - {fileID: 11400000, guid: c483e149f1a9d6143a9caf854ebd6ede, type: 2}
   - {fileID: 11400000, guid: f3d1081081a6bef458f0e310d64178ad, type: 2}
+  prefab: {fileID: 5687145291961846686, guid: cbb6107c2e9fe2246a3593db6efc741b, type: 3}
