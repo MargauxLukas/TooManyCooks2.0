@@ -5,17 +5,17 @@ using UnityEngine;
 public class EnterTable : MonoBehaviour
 {
     public Animator tableAnimator;
-    public bool ToLeft = false;
+    public bool toLeft = false;
 
     private void Update()
     {
         if(tableAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("D"))
         {
-            ToLeft = false;
+            toLeft = false;
         }
         else
         {
-            ToLeft = true;
+            toLeft = true;
         }
     }
 
@@ -26,13 +26,13 @@ public class EnterTable : MonoBehaviour
             Debug.Log("test");
         }
 
-        if (!ToLeft)
+        if (!toLeft)
         {
             if (other.gameObject.GetComponent<TableSlot>())
             {
                 if (other.gameObject.GetComponent<TableSlot>().ingredient == null)
                 {
-                    other.gameObject.GetComponent<TableSlot>().Spawn();
+                    other.gameObject.GetComponent<TableSlot>().Spawn(toLeft);
                 }
             }
         }

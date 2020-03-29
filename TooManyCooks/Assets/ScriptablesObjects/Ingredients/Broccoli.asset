@@ -14,7 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Broccoli
   visual: {fileID: 2100000, guid: 8c0d4f0712beaa34899e7b79dac12eab, type: 2}
-  cutted: 0
-  cooked: 0
-  fried: 0
-  breaded: 0
+  prefab: {fileID: 2241388343622245074, guid: 7a546fcb97cf3a64890d115a482024f1, type: 3}

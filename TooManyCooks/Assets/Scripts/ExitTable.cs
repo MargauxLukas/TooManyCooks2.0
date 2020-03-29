@@ -5,17 +5,17 @@ using UnityEngine;
 public class ExitTable : MonoBehaviour
 {
     public Animator tableAnimator;
-    public bool ToLeft = false;
+    public bool toLeft = false;
 
     private void Update()
     {
         if (tableAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("D"))
         {
-            ToLeft = false;
+            toLeft = false;
         }
         else
         {
-            ToLeft = true;
+            toLeft = true;
         }
 
     }
@@ -27,7 +27,7 @@ public class ExitTable : MonoBehaviour
             Debug.Log("test");
         }
 
-        if (!ToLeft)
+        if (!toLeft)
         {
             if (other.gameObject.transform.childCount > 0 && !other.gameObject.name.Contains("IngredientsMix"))
             {
@@ -45,7 +45,7 @@ public class ExitTable : MonoBehaviour
             {
                 if (other.gameObject.GetComponent<TableSlot>().ingredient == null)
                 {
-                    other.gameObject.GetComponent<TableSlot>().Spawn();
+                    other.gameObject.GetComponent<TableSlot>().Spawn(toLeft);
                 }
             }
         }

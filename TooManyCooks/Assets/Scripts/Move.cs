@@ -30,9 +30,13 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        if(gameObject.GetComponent<IngredientInstance>().slot == null && gameObject.GetComponent<IngredientInstance>().slotTable == null && !isTouched)
+        if (gameObject.name.Contains("IngredientsMix"))
         {
-            Destroy(gameObject);
+            //ok
+        }
+        else if(gameObject.GetComponent<IngredientInstance>().slot == null && gameObject.GetComponent<IngredientInstance>().slotTable == null && !isTouched)
+        {
+            //Destroy(gameObject);
         }
 
         if (!cuttingGame && !cookingGame)
@@ -68,7 +72,7 @@ public class Move : MonoBehaviour
                     {
                         justDropped = true;
                         isTouched = false;
-                        transform.position = new Vector3(touchPos.x, touchPos.y, -0.75f);
+                        transform.position = new Vector3(touchPos.x, touchPos.y, -1f);
                     }
                 }
             }
@@ -95,7 +99,7 @@ public class Move : MonoBehaviour
                         Debug.Log(touchCount);
                         touchCount++;
 
-                        Material test = gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials[0];
+                        /*Material test = gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials[0];
 
                         if (touchCount == 1)
                         {
@@ -116,8 +120,8 @@ public class Move : MonoBehaviour
                         else if (touchCount == 5)
                         {
                             test.SetFloat("Vector1_1DD39ACC", 0.6f);
-                        }
-                        else if (touchCount == 6)
+                        }*/
+                        if (touchCount == 6)
                         {
                             gameObject.GetComponent<Animator>().SetBool("Cut", true);
                             cuttingGame = false;

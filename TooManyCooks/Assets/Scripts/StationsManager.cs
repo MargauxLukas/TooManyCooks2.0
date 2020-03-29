@@ -10,6 +10,7 @@ public class StationsManager : MonoBehaviour
     public List<Station> chosenStations;
 
     public GameObject ingredientMixPrefab;
+    public GameObject platDouteux;
 
     private void Awake()
     {

@@ -19,6 +19,12 @@ public class SendRecipe : MonoBehaviour
             CheckIngredients(collision, ingredients);
             CompareScore(collision, ingredients);
         }
+        if(collision.gameObject.name.Contains("PlatDouteux"))
+        {
+            Debug.Log("C'ets quoi ce plat ?");
+            GameManager.instance.Strike();
+            SendPlate(collision.gameObject);
+        }
     }
 
     public void CheckIngredients(Collider _collision, List<GameObject> _collisionIngredients)

@@ -10,7 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3253904696169478663}
   - component: {fileID: 5839948075011094154}
-  m_Layer: 0
+  - component: {fileID: 6291447866189723885}
+  - component: {fileID: -7987688136950706693}
+  - component: {fileID: 3006770673889436491}
+  - component: {fileID: -5900717477569944788}
+  m_Layer: 8
   m_Name: Champignion PREF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,6 +59,77 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &6291447866189723885
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4364286564078388992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5537663, y: 1.6132834, z: 2.3289857}
+  m_Center: {x: 0.038058996, y: 0.3066417, z: 0.14976501}
+--- !u!54 &-7987688136950706693
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4364286564078388992}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3006770673889436491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4364286564078388992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15f90f8fe33a514aadc59da585aab42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTouched: 0
+  justDropped: 0
+  cuttingGame: 0
+  cookingGame: 0
+  touchCount: 0
+  startPos: 0
+  endPos: 0
+  swipeDifference: 0
+  cam: {fileID: 0}
+  upBar: {fileID: 0}
+  downBar: {fileID: 0}
+--- !u!114 &-5900717477569944788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4364286564078388992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c447d2baf27264e992126bf76f3132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredient: {fileID: 0}
+  cutted: 0
+  cooked: 0
+  fried: 0
+  breaded: 0
+  slot: {fileID: 0}
+  slotTable: {fileID: 0}
 --- !u!1001 &1255306414678344211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,6 +206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Smoke permutation particle system
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844857769971165463, guid: d106377c44533d440b41a4034edc2fe8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d106377c44533d440b41a4034edc2fe8, type: 3}
@@ -221,6 +301,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Champignion V2 MESH 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e0b04f482a342e04db582b628ec28c44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e0b04f482a342e04db582b628ec28c44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0b04f482a342e04db582b628ec28c44, type: 3}
@@ -317,6 +407,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Champignion V2 MESH 2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e0b04f482a342e04db582b628ec28c44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e0b04f482a342e04db582b628ec28c44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0b04f482a342e04db582b628ec28c44, type: 3}
 --- !u!4 &1826676858574511515 stripped
@@ -335,37 +435,37 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.21
+      value: 0.20999998
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.29622918
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.25
+      value: 0.1835866
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0012850164
+      value: 0.5246216
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.62955683
+      value: -0.46304145
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00091818155
+      value: 0.4265386
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7769529
+      value: -0.5730879
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
@@ -375,17 +475,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.18100001
+      value: -11.906
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -281.965
+      value: -271.214
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.011000001
+      value: -84.977005
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
@@ -406,6 +506,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: champignon tranche MESH 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: fcdf148d63d61c2438716f9d9467b39b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcdf148d63d61c2438716f9d9467b39b, type: 3}
@@ -430,32 +535,32 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.40124726
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.45
+      value: 0.24297196
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0008866891
+      value: -0.4123141
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7920194
+      value: -0.5824309
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.001306944
+      value: 0.5367223
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.61049384
+      value: 0.45022273
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
@@ -465,17 +570,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.18100001
+      value: 14.711
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -104.74901
+      value: -91.093
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.011000001
+      value: 85.027
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fcdf148d63d61c2438716f9d9467b39b,
         type: 3}
@@ -496,6 +601,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: champignon tranche MESH 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: fcdf148d63d61c2438716f9d9467b39b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcdf148d63d61c2438716f9d9467b39b, type: 3}

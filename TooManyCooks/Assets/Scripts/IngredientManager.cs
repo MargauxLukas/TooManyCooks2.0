@@ -7,7 +7,7 @@ public class IngredientManager : MonoBehaviour
     public static IngredientManager instance;
 
     public List<Ingredient> ingredientList;
-    public GameObject prefab;
+    private Ingredient ingredient;
 
     private void Awake()
     {
@@ -19,25 +19,26 @@ public class IngredientManager : MonoBehaviour
         instance = this;
     }
 
-    public GameObject SpawnIngredient(Transform t)
+    public GameObject SpawnIngredient(Transform t, bool toLeft)
     {
         int random = Random.Range(1, 5);
 
         if (random <= 3)
         {
-            GameObject ingredientSpawn = Instantiate(prefab, new Vector3(t.position.x + 0.1f, t.position.y - 0.6f, -1.40f), Quaternion.identity, t);
+            ingredient = ingredientList[Random.Range(0, ingredientList.Count)];
+
+            GameObject ingredientSpawn = Instantiate(ingredient.prefab, new Vector3(t.position.x + 0.1f, t.position.y - 0.6f, -1.40f), Quaternion.identity, t);
             ingredientSpawn.GetComponent<IngredientInstance>().slotTable = t.gameObject.GetComponent<TableSlot>();
+            ingredientSpawn.GetComponent<IngredientInstance>().ingredient = ingredient;
 
-            ingredientSpawn.GetComponent<IngredientInstance>().ingredient = ingredientList[Random.Range(0, ingredientList.Count)];
-            ingredientSpawn.transform.rotation = Quaternion.Euler(0f, -180f, -26.501f);
-
-            List<GameObject> childs = new List<GameObject>();
-            Material mat = ingredientSpawn.GetComponent<IngredientInstance>().ingredient.visual;
-
-            foreach (GameObject g in childs = UtilityFunctions.instance.GetAllChildren(ingredientSpawn))
+            /*if (toLeft)
             {
-                g.GetComponent<MeshRenderer>().material = mat;
+                ingredientSpawn.transform.rotation = Quaternion.Euler(0f, -180f, -26.501f);
             }
+            else
+            {
+                ingredientSpawn.transform.rotation = Quaternion.Euler(0f, -180f, +26f);
+            }*/
 
             return ingredientSpawn;
         }

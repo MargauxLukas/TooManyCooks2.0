@@ -8,15 +8,39 @@ public class TableEnter : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<Move>() && other.gameObject.GetComponent<Move>().justDropped)
+        if (other.gameObject.GetComponent<Move>() && other.gameObject.GetComponent<Move>().justDropped)
         {
             foreach(GameObject plate in plateList)
             {
-                if(plate.transform.position.x > -7 && plate.transform.position.x < 7)
+                if (plate.transform.position.x > -7 && plate.transform.position.x < 7)
                 {
-                    if(!plate.GetComponent<TableSlot>().occupied)
+                    if (!plate.GetComponent<TableSlot>().occupied)
                     {
-                        other.transform.position = new Vector3(plate.transform.position.x + 0.1f, plate.transform.position.y - 0.6f, -0.75f);
+                        Debug.Log(plate.gameObject.name);
+                        other.GetComponent<IngredientInstance>().slotTable = plate.GetComponent<TableSlot>();
+                        other.transform.position = new Vector3(plate.transform.position.x + 0.1f, plate.transform.position.y - 0.6f, -1.48f);
+                        other.transform.parent = plate.transform;
+                        plate.GetComponent<TableSlot>().occupied = true;
+                        other.gameObject.GetComponent<Move>().justDropped = false;
+                    }
+                }
+            }
+        }
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.GetComponent<Move>() && other.gameObject.GetComponent<Move>().justDropped)
+        {
+            foreach (GameObject plate in plateList)
+            {
+                if (plate.transform.position.x > -7 && plate.transform.position.x < 7)
+                {
+                    if (!plate.GetComponent<TableSlot>().occupied)
+                    {
+                        Debug.Log(plate.gameObject.name);
+                        other.GetComponent<IngredientInstance>().slotTable = plate.GetComponent<TableSlot>();
+                        other.transform.position = new Vector3(plate.transform.position.x + 0.1f, plate.transform.position.y - 0.6f, -1.48f);
                         other.transform.parent = plate.transform;
                         plate.GetComponent<TableSlot>().occupied = true;
                         other.gameObject.GetComponent<Move>().justDropped = false;

@@ -19,6 +19,7 @@ public class Station : MonoBehaviour
     public GameObject canvas;
 
     public GameObject ingredientMix;
+    public GameObject platDouteux;
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -66,10 +67,17 @@ public class Station : MonoBehaviour
         {
             stationListIngredients.Remove(collision.gameObject.GetComponent<IngredientInstance>());
 
-            collision.gameObject.GetComponent<IngredientInstance>().slot = null;
-            stationSlots[0].gameObject.GetComponent<Slot>().occupied = false;
+            if (collision.gameObject.GetComponent<IngredientInstance>().slot != null)
+            {
+                collision.gameObject.GetComponent<IngredientInstance>().slot.GetComponent<Slot>().occupied = false;
+                collision.gameObject.GetComponent<IngredientInstance>().slot = null;
+            }
 
             //Debug.Log("CutBool : " + collision.gameObject.GetComponent<Animator>().GetBool("Cut"));
+            if(transform.parent.name.Contains("PlatDouteux") || transform.parent.name.Contains("IngredientsMix"))
+            {
+                collision.GetComponent<BoxCollider>().enabled = false;
+            }
 
             SetButton();
         }
@@ -114,35 +122,98 @@ public class Station : MonoBehaviour
 
     public void Cook()
     {
-        List<GameObject> listChild;
-        foreach (IngredientInstance ingredient in stationListIngredients)
-        {
-            ingredient.cooked = true;
-            listChild = UtilityFunctions.instance.GetAllChildren(ingredient.gameObject);
-            //ingredient.gameObject.SetActive(false);
+        int goodIngredient;
+        bool goodRecette = false;
 
-            foreach(GameObject go in listChild)
+        //PlatDouteux
+        foreach (Recipe recipe in RecipeManager.instance.recipesList)
+        {
+            goodIngredient = 0;
+            if (!goodRecette)
             {
-                go.SetActive(false);
+                foreach (Ingredient ingredientRecipe in recipe.ingredientsList)
+                {
+                    if (!goodRecette)
+                    {
+                        foreach (IngredientInstance ingredientI in stationListIngredients)
+                        {
+                            if (ingredientRecipe.name == ingredientI.ingredient.name)
+                            {
+                                //Bon ingredient
+                                goodIngredient++;
+                            }
+
+                            if (goodIngredient == 3)
+                            {
+                                goodRecette = true;
+                            }
+                        }
+                    }
+                }
             }
         }
 
-        ingredientMix = Instantiate(StationsManager.instance.ingredientMixPrefab, new Vector3(6.87f, 0f, -0.66f), Quaternion.identity);
-
-        foreach (IngredientInstance ingredient in stationListIngredients)
+        if (goodRecette)
         {
-            ingredient.transform.parent = ingredientMix.transform;
+
+            //BonPlat
+            List<GameObject> listChild;
+            foreach (IngredientInstance ingredient in stationListIngredients)
+            {
+                ingredient.cooked = true;
+                listChild = UtilityFunctions.instance.GetAllChildren(ingredient.gameObject);
+                //ingredient.gameObject.SetActive(false);
+
+                foreach (GameObject go in listChild)
+                {
+                    go.SetActive(false);
+                }
+            }
+
+            ingredientMix = Instantiate(StationsManager.instance.ingredientMixPrefab, new Vector3(6.87f, 0f, -0.66f), Quaternion.identity);
+
+            foreach (IngredientInstance ingredient in stationListIngredients)
+            {
+                ingredient.transform.parent = ingredientMix.transform;
+            }
+            /*stationListIngredients.Clear();
+            stationListIngredients.Add(ingredientMix.GetComponent<IngredientInstance>());*/
+
+            ingredientMix.GetComponent<Move>().cookingGame = true;
+            ingredientMix.GetComponent<Move>().upBar = canvas.transform.GetChild(0).gameObject;
+            ingredientMix.GetComponent<Move>().downBar = canvas.transform.GetChild(1).gameObject;
+
+            canvas.SetActive(true);
         }
-        /*stationListIngredients.Clear();
-        stationListIngredients.Add(ingredientMix.GetComponent<IngredientInstance>());*/
+        else
+        {
+            //PlatDouteux
+            List<GameObject> listChild;
+            foreach (IngredientInstance ingredient in stationListIngredients)
+            {
+                ingredient.cooked = true;
+                listChild = UtilityFunctions.instance.GetAllChildren(ingredient.gameObject);
+                //ingredient.gameObject.SetActive(false);
 
-        ingredientMix.GetComponent<Move>().cookingGame = true;
-        ingredientMix.GetComponent<Move>().upBar = canvas.transform.GetChild(0).gameObject;
-        ingredientMix.GetComponent<Move>().downBar = canvas.transform.GetChild(1).gameObject;
+                foreach (GameObject go in listChild)
+                {
+                    go.SetActive(false);
+                }
+            }
 
-        
-        canvas.SetActive(true);
+            platDouteux = Instantiate(StationsManager.instance.platDouteux, new Vector3(6.87f, 0f, -0.66f), Quaternion.identity);
 
+            foreach (IngredientInstance ingredient in stationListIngredients)
+            {
+                ingredient.transform.parent = platDouteux.transform;
+            }
+
+            platDouteux.GetComponent<Move>().cookingGame = true;
+            platDouteux.GetComponent<Move>().upBar = canvas.transform.GetChild(0).gameObject;
+            platDouteux.GetComponent<Move>().downBar = canvas.transform.GetChild(1).gameObject;
+
+            canvas.SetActive(true);
+        }
     }
 
     public void SetButton()

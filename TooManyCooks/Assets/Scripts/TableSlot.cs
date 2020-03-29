@@ -35,9 +35,9 @@ public class TableSlot : MonoBehaviour
         ingredient = ingredientSpawn;
     }*/
 
-    public void Spawn()
+    public void Spawn(bool toLeft)
     {
-        ingredient = IngredientManager.instance.SpawnIngredient(transform);
+        ingredient = IngredientManager.instance.SpawnIngredient(transform, toLeft);
 
         if (ingredient != null)
         {

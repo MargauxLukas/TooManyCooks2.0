@@ -10,8 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5744762816744191569}
   - component: {fileID: 2448113978171559179}
-  m_Layer: 0
-  m_Name: Poisson
+  - component: {fileID: -5365500632380357426}
+  - component: {fileID: 3946163311957280162}
+  - component: {fileID: -5197276246223038025}
+  - component: {fileID: -8028186920249337853}
+  m_Layer: 8
+  m_Name: Poisson PREF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,6 +57,77 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &-5365500632380357426
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348412161882976846}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5562189, y: 1.4354033, z: 1.7447698}
+  m_Center: {x: 0.08104646, y: 0.21770167, z: -0.006676674}
+--- !u!54 &3946163311957280162
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348412161882976846}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-5197276246223038025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348412161882976846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15f90f8fe33a514aadc59da585aab42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTouched: 0
+  justDropped: 0
+  cuttingGame: 0
+  cookingGame: 0
+  touchCount: 0
+  startPos: 0
+  endPos: 0
+  swipeDifference: 0
+  cam: {fileID: 0}
+  upBar: {fileID: 0}
+  downBar: {fileID: 0}
+--- !u!114 &-8028186920249337853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348412161882976846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c447d2baf27264e992126bf76f3132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredient: {fileID: 0}
+  cutted: 0
+  cooked: 0
+  fried: 0
+  breaded: 0
+  slot: {fileID: 0}
+  slotTable: {fileID: 0}
 --- !u!1001 &1671471367628621996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135,6 +210,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smoke permutation particle system
       objectReference: {fileID: 0}
+    - target: {fileID: 1844857769971165463, guid: d106377c44533d440b41a4034edc2fe8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d106377c44533d440b41a4034edc2fe8, type: 3}
 --- !u!4 &1056096330297745852 stripped
@@ -168,22 +248,22 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ca0d8561b2c75064fafff0872672dc56,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.027569477
+      value: -0.021205438
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ca0d8561b2c75064fafff0872672dc56,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.013992337
+      value: 0.7067888
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ca0d8561b2c75064fafff0872672dc56,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.6556155
+      value: 0.021205438
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ca0d8561b2c75064fafff0872672dc56,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7544618
+      value: 0.7067888
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ca0d8561b2c75064fafff0872672dc56,
         type: 3}
@@ -198,17 +278,22 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ca0d8561b2c75064fafff0872672dc56,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.86300004
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ca0d8561b2c75064fafff0872672dc56,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 82.006004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: ca0d8561b2c75064fafff0872672dc56,
         type: 3}
       propertyPath: m_Name
       value: Poisson MESH
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ca0d8561b2c75064fafff0872672dc56,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca0d8561b2c75064fafff0872672dc56, type: 3}
@@ -225,6 +310,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5744762816744191569}
     m_Modifications:
+    - target: {fileID: -6287836789983732601, guid: 85e29e231cfa02147bb8def0e41c4b05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -4234716062821710240, guid: 85e29e231cfa02147bb8def0e41c4b05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 85e29e231cfa02147bb8def0e41c4b05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -243,7 +338,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 85e29e231cfa02147bb8def0e41c4b05,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.7241543
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 85e29e231cfa02147bb8def0e41c4b05,
         type: 3}
@@ -258,7 +353,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 85e29e231cfa02147bb8def0e41c4b05,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.689638
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 85e29e231cfa02147bb8def0e41c4b05,
         type: 3}
@@ -268,7 +363,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 85e29e231cfa02147bb8def0e41c4b05,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -92.797
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 85e29e231cfa02147bb8def0e41c4b05,
         type: 3}
@@ -280,10 +375,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2530895045393947740, guid: 85e29e231cfa02147bb8def0e41c4b05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 85e29e231cfa02147bb8def0e41c4b05,
         type: 3}
       propertyPath: m_Name
       value: "poisson coup\xE9"
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 85e29e231cfa02147bb8def0e41c4b05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187449669427467095, guid: 85e29e231cfa02147bb8def0e41c4b05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6080596665305963236, guid: 85e29e231cfa02147bb8def0e41c4b05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152493775193411352, guid: 85e29e231cfa02147bb8def0e41c4b05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85e29e231cfa02147bb8def0e41c4b05, type: 3}

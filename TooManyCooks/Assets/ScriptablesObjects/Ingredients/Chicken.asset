@@ -14,7 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Chicken
   visual: {fileID: 2100000, guid: 0bc5e02b6d078bd4da473c87ab8383e3, type: 2}
-  cutted: 0
-  cooked: 0
-  fried: 0
-  breaded: 0
+  prefab: {fileID: 7217198136112548810, guid: a88b293ddaf4c354699d3044fb2d8c6e, type: 3}

@@ -14,7 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Fish
   visual: {fileID: 2100000, guid: 57a2914219ab71a4997e9ae3d119ad69, type: 2}
-  cutted: 0
-  cooked: 0
-  fried: 0
-  breaded: 0
+  prefab: {fileID: 3348412161882976846, guid: 8bb251e284f046b46a4b7138af9d0760, type: 3}

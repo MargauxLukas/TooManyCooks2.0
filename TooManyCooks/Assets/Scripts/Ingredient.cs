@@ -7,6 +7,7 @@ public class Ingredient : ScriptableObject
 {
     public string type;
     public Material visual;
+    public GameObject prefab;
 
     /*public bool cutted;
     public bool cooked;

@@ -14,7 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Pepper
   visual: {fileID: 2100000, guid: f0e9c4f548478584bb5c99918fab33f0, type: 2}
-  cutted: 0
-  cooked: 0
-  fried: 0
-  breaded: 0
+  prefab: {fileID: 988683704747061332, guid: 447c9ca3b9f6fb84784b27307f3c83f5, type: 3}

@@ -14,7 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Mushroom
   visual: {fileID: 2100000, guid: 5e653df3a02b24d46b9c98acc96b8abb, type: 2}
-  cutted: 0
-  cooked: 0
-  fried: 0
-  breaded: 0
+  prefab: {fileID: 4364286564078388992, guid: 2635ccb84f16136419eb28a41143d018, type: 3}

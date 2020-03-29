@@ -14,7 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Carrot
   visual: {fileID: 2100000, guid: 6c67b86ddda066a4a8434118ba047f11, type: 2}
-  cutted: 0
-  cooked: 0
-  fried: 0
-  breaded: 0
+  prefab: {fileID: 575069253031156210, guid: 5bb3300e160041a4e83896c92c5fd403, type: 3}

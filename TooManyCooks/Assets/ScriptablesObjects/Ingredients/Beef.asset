@@ -14,7 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Beef
   visual: {fileID: 2100000, guid: b0ee90a7338a99a49a6ca5ba5806190d, type: 2}
-  cutted: 0
-  cooked: 0
-  fried: 0
-  breaded: 0
+  prefab: {fileID: 6072967012168540776, guid: 7385edbbece3822498bbc3d8930643c2, type: 3}

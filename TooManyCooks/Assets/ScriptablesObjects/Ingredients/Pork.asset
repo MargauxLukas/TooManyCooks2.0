@@ -14,7 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Pork
   visual: {fileID: 2100000, guid: 7194447c2d7ae4346aed1ec6a1e29b9c, type: 2}
-  cutted: 0
-  cooked: 0
-  fried: 0
-  breaded: 0
+  prefab: {fileID: 6887372938480954043, guid: 223d43e2f010ba8449ea613fe7ac847b, type: 3}

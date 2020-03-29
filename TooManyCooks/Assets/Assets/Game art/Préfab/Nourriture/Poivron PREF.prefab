@@ -10,7 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3181517741161766805}
   - component: {fileID: 4655227710265753601}
-  m_Layer: 0
+  - component: {fileID: 5748026992013303443}
+  - component: {fileID: 8577999419186561367}
+  - component: {fileID: -6729334328674243923}
+  - component: {fileID: 1892885798138794374}
+  m_Layer: 8
   m_Name: Poivron PREF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,6 +58,77 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &5748026992013303443
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988683704747061332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9515747, y: 1.4415565, z: 1.8704641}
+  m_Center: {x: 0.08739346, y: 0.22077823, z: 0.059854746}
+--- !u!54 &8577999419186561367
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988683704747061332}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-6729334328674243923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988683704747061332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15f90f8fe33a514aadc59da585aab42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTouched: 0
+  justDropped: 0
+  cuttingGame: 0
+  cookingGame: 0
+  touchCount: 0
+  startPos: 0
+  endPos: 0
+  swipeDifference: 0
+  cam: {fileID: 0}
+  upBar: {fileID: 0}
+  downBar: {fileID: 0}
+--- !u!114 &1892885798138794374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988683704747061332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c447d2baf27264e992126bf76f3132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredient: {fileID: 0}
+  cutted: 0
+  cooked: 0
+  fried: 0
+  breaded: 0
+  slot: {fileID: 0}
+  slotTable: {fileID: 0}
 --- !u!1001 &4201415737095546332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,6 +136,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3181517741161766805}
     m_Modifications:
+    - target: {fileID: -7937639134526729970, guid: d5d0a4c2b57614640af72ca2c68bfaed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5109357889574941052, guid: d5d0a4c2b57614640af72ca2c68bfaed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -4682901362387869790, guid: d5d0a4c2b57614640af72ca2c68bfaed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d5d0a4c2b57614640af72ca2c68bfaed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -69,17 +159,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d5d0a4c2b57614640af72ca2c68bfaed,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.09045546
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d5d0a4c2b57614640af72ca2c68bfaed,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.22319809
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d5d0a4c2b57614640af72ca2c68bfaed,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.7616603
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d5d0a4c2b57614640af72ca2c68bfaed,
         type: 3}
@@ -94,7 +184,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d5d0a4c2b57614640af72ca2c68bfaed,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.6479766
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d5d0a4c2b57614640af72ca2c68bfaed,
         type: 3}
@@ -104,7 +194,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d5d0a4c2b57614640af72ca2c68bfaed,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -99.22199
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d5d0a4c2b57614640af72ca2c68bfaed,
         type: 3}
@@ -120,6 +210,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Poivron tranche MESH
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d5d0a4c2b57614640af72ca2c68bfaed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d5d0a4c2b57614640af72ca2c68bfaed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 721056895991426811, guid: d5d0a4c2b57614640af72ca2c68bfaed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 782023234881082834, guid: d5d0a4c2b57614640af72ca2c68bfaed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5d0a4c2b57614640af72ca2c68bfaed, type: 3}
@@ -195,6 +305,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Poivron MESH (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e85dd51a8b5316b48b082a76b7ac914f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e85dd51a8b5316b48b082a76b7ac914f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 721056895991426811, guid: e85dd51a8b5316b48b082a76b7ac914f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187449669427467095, guid: e85dd51a8b5316b48b082a76b7ac914f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8405317065323677370, guid: e85dd51a8b5316b48b082a76b7ac914f,
         type: 3}
@@ -276,6 +406,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smoke permutation particle system
       objectReference: {fileID: 0}
+    - target: {fileID: 1844857769971165463, guid: d106377c44533d440b41a4034edc2fe8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d106377c44533d440b41a4034edc2fe8, type: 3}
 --- !u!4 &8166530357322601471 stripped
@@ -350,6 +485,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Poivron MESH (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e85dd51a8b5316b48b082a76b7ac914f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e85dd51a8b5316b48b082a76b7ac914f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 721056895991426811, guid: e85dd51a8b5316b48b082a76b7ac914f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187449669427467095, guid: e85dd51a8b5316b48b082a76b7ac914f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8405317065323677370, guid: e85dd51a8b5316b48b082a76b7ac914f,
         type: 3}
